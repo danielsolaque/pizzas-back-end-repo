@@ -42,7 +42,7 @@ app.get('/items', (req, res) => {
 })
 
 
-//Mike you can test the error at the front end uncommenting this code: 
+//Mike you can test the error at the front end uncommenting this code and commenting the above: 
 
 // app.get("/items", (req, res) => {
 //   res.status(500).json({ error: "Server Error" });
