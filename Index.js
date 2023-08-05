@@ -41,6 +41,14 @@ app.get('/items', (req, res) => {
     res.json({ data: parsePizzas });
 })
 
+
+//Mike you can test the error at the front end uncommenting this code: 
+
+// app.get("/items", (req, res) => {
+//   res.status(500).json({ error: "Server Error" });
+// });
+
+
 app.get('/items/:id', (req, res) => {
     const id = req.params.id //params allow us to get the values sent by the user through the Url + params is a property of the request object.
 
