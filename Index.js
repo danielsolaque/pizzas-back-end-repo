@@ -7,12 +7,16 @@ dotenv.config()
 // Importing all express package to the const express.
 const express = require('express');
 
+const cors = require('cors'); // Import the cors package
+
 //"file system" allow us interact with the file system in this case is (pizza.json)
 const fs = require('fs');
 
 //Creating my aplication
 const app = express();
 
+// Using the cors middleware
+app.use(cors());
 
 const PORT = process.env.PORT || 8888;
 
