@@ -1,7 +1,3 @@
-const dotenv = require("dotenv");
-
-dotenv.config();
-
 const express = require("express");
 const cors = require("cors");
 
@@ -11,7 +7,6 @@ const app = express();
 
 app.use(cors());
 
-const PORT = process.env.PORT || 8888;
 
 app.use(express.json());
 
@@ -35,6 +30,4 @@ app.get("/items/:id", (req, res) => {
   }
 });
 
-app.listen(PORT, () =>
-  console.log(`Server running and listening on port ${PORT}`)
-);
+module.exports = app;
