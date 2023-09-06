@@ -12,7 +12,7 @@ app.get("/", (req, res) => {
   try {
     res.json({ data: "Service is running!" });
   } catch (error) {
-    res.status(500).json({ error: "An internal server error occurred" });
+    res.status(500).json({ error: "An error has occurred running the service" });
   }
 });
 
@@ -20,7 +20,7 @@ app.get("/items", (req, res) => {
   try {
     res.json({ data: pizzas });
   } catch (error) {
-    res.status(500).json({ error: "An internal server error occurred" });
+    res.status(500).json({ error: "An error has occurred trying to get the list of pizzas" });
   }
 });
 
@@ -30,12 +30,14 @@ app.get("/items/:id", (req, res) => {
     const found = pizzas.find((pizza) => pizza.id === id);
 
     if (!found) {
-      res.status(404).json({ error: "Id not found" });
+      res.status(404).json({ error: `No pizza with the id: ${id} was found`});
     } else {
       res.json({ data: found });
     }
   } catch (error) {
-    res.status(500).json({ error: "An internal server error occurred" });
+    res.status(500).json({
+      error: `An error has occurred trying to get the pizza with the id: ${id}`,
+    });
   }
 });
 
